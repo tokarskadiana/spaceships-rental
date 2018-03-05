@@ -1,0 +1,38 @@
+[
+  {
+    "id" : 0,
+    "planet" : "Alderran"
+  },
+  {
+    "id" : 1,
+    "planet" : "Tatooine"
+  },
+  {
+    "id" : 2,
+    "planet" : "Byss"
+  },
+  {
+    "id" : 4,
+    "planet" : "Wobani"
+  },
+  {
+    "id" : 5,
+    "planet" : "Ilum"
+  },
+  {
+    "id" : 6,
+    "planet" : "Mortis"
+  },
+  {
+    "id" : 7,
+    "planet" : "Korriban"
+  },
+  {
+    "id" : 8,
+    "planet" : "Csilla"
+  },
+  {
+    "id" : 9,
+    "planet" : "Naboo"
+  }
+]
