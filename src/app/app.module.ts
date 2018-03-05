@@ -5,7 +5,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { SpaceshipsListComponent } from './components/spaceships-list/spaceships-list.component';
 import {routing} from './app.routing';
 import {SpaceshipService} from './services/spaceship.service';
-
+import {DataListModule} from 'primeng/datalist';
 
 @NgModule({
   declarations: [
@@ -15,6 +15,7 @@ import {SpaceshipService} from './services/spaceship.service';
   imports: [
     BrowserModule,
     HttpClientModule,
+    DataListModule,
     routing
   ],
   providers: [SpaceshipService],

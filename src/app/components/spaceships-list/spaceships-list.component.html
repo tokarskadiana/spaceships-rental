@@ -1,3 +1,35 @@
-<p>
-  spaceships-list works!
-</p>
+<!--<ul *ngIf="!loading">-->
+  <!--<li *ngFor="let ship of spaceships">-->
+    <!--{{ship.name}}-->
+    <!--<img src="{{ship.mainImageUrl}}" class="main-img">-->
+  <!--</li>-->
+<!--</ul>-->
+
+<p-dataList *ngIf="!loading" [value]="spaceships">
+  <p-header>
+    List of Spaceships
+  </p-header>
+  <ng-template let-ship pTemplate="item">
+    <div class="ui-g ui-fluid ship-item">
+      <div class="ui-g-12 ui-md-3 text-center">
+        <img src="{{ship.mainImageUrl}}" class="main-img">
+      </div>
+      <div class="ui-g-12 ui-md-9 ship-details">
+        <div class="ui-g">
+          <div class="ui-g-2 ui-sm-6">Name: </div>
+          <div class="ui-g-10 ui-sm-6">{{ship.name}}</div>
+
+          <div class="ui-g-2 ui-sm-6">Description: </div>
+          <div class="ui-g-10 ui-sm-6">{{ship.shortDescription}}</div>
+
+          <div class="ui-g-2 ui-sm-6">Type: </div>
+          <div class="ui-g-10 ui-sm-6">{{ship.type}}</div>
+
+          <div class="ui-g-2 ui-sm-6">Capacity: </div>
+          <div class="ui-g-10 ui-sm-6">{{ship.capacity}}</div>
+
+        </div>
+      </div>
+    </div>
+  </ng-template>
+</p-dataList>
