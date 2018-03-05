@@ -1,16 +1,18 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
-
 import { AppComponent } from './app.component';
+import { SpaceshipsListComponent } from './components/spaceships-list/spaceships-list.component';
+import {routing} from './app.routing';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    SpaceshipsListComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    routing
   ],
   providers: [],
   bootstrap: [AppComponent]
