@@ -2,7 +2,16 @@
 body {
   font-family: 'Open Sans', 'Roboto', 'sans-serif';
 }
-
+.card {
+  width: 100%;
+  margin: 0 auto;
+  background-color: #fff;
+  border-radius: 2px;
+  -webkit-box-shadow: 0 0 10px 5px rgba(0,0,0,0.1);;
+  -moz-box-shadow: 0 0 10px 5px rgba(0,0,0,0.1);;
+  box-shadow: 0 0 10px 5px rgba(0,0,0,0.1);;
+  padding: 15px;
+}
 @media screen and (min-width: 768px) {
   .container-fluid {
     width: 80%;
