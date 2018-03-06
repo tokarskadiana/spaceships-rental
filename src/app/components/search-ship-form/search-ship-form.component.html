@@ -12,23 +12,28 @@
                   placeholder="Type planet name" [dropdown]="true">
   </p-autoComplete>
 
-  <span class="search-form-control">Reserve from</span>
-  <p-inputMask formControlName="reserveFrom" mask="99/99/9999"  placeholder="mm/dd/yyyy"
-               slotChar="mm/dd/yyyy" styleClass="search-form-control" required></p-inputMask>
-
-  <span class="search-form-control">Reserve to</span>
-  <p-inputMask formControlName="reserveTo" mask="99/99/9999"  placeholder="mm/dd/yyyy"
-               styleClass="search-form-control" slotChar="mm/dd/yyyy" required=""></p-inputMask>
-
-  <button pButton type="button" (click)="showFilters=!showFilters" label="Show more filters" class="ui-button-secondary"></button>
-
-  <div *ngIf="showFilters">
-    <p-checkbox formControlName="androidPilot" label="Android pilot on board" binary="true"></p-checkbox>
-    <p-dropdown formControlName="type" [options]="typeOptions" styleClass="search-form-control"></p-dropdown>
-    <p-dropdown formControlName="capacity" [options]="capacityOptions" styleClass="search-form-control"></p-dropdown>
-    <p-checkbox formControlName="longTrip" label="Dedicated for long trips" binary="true"></p-checkbox>
+  <div class="row">
+    <div class="col-md-6">
+      <span class="search-form-control input-label">Reserve from</span>
+      <p-inputMask formControlName="reserveFrom" mask="99/99/9999"  placeholder="mm/dd/yyyy"
+                   slotChar="mm/dd/yyyy" styleClass="search-form-control" required></p-inputMask>
+    </div>
+    <div class="col-md-6">
+      <span class="search-form-control input-label">Reserve to</span>
+      <p-inputMask formControlName="reserveTo" mask="99/99/9999"  placeholder="mm/dd/yyyy"
+                   styleClass="search-form-control" slotChar="mm/dd/yyyy" required=""></p-inputMask>
+    </div>
   </div>
+  <div *ngIf="showFilters">
 
+    <p-dropdown formControlName="type" [options]="typeOptions" styleClass="search-form-control"
+                [style]="{'width':'100%'}" placeholder="Ship type"></p-dropdown>
+    <p-dropdown formControlName="capacity" [options]="capacityOptions" styleClass="search-form-control"
+                [style]="{'width':'100%'}" placeholder="Ship capacity"></p-dropdown>
+    <div class="ui-g-12"><p-checkbox formControlName="androidPilot" label="Android pilot on board" binary="true"></p-checkbox></div>
+    <div class="ui-g-12"><p-checkbox formControlName="longTrip" label="Dedicated for long trips" binary="true"></p-checkbox></div>
+  </div>
+  <button pButton type="button" (click)="showFilters=!showFilters" label="Show {{showFilters?'less':'more'}} filters" class="ui-button-secondary"></button>
   <button pButton type="submit" (click)="findRent();submitClick()" label="Find" class="pull-right" [disabled]="!searchFilters.valid"></button>
 </form>
 
