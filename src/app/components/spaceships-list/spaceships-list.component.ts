@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {SpaceshipService} from '../../services/spaceship.service';
 import {Spaceship} from '../../models/spaseship.model';
 import {Router} from '@angular/router';
+import {FormGroup} from '@angular/forms';
 
 @Component({
   selector: 'app-spaceships-list',
@@ -12,6 +13,7 @@ export class SpaceshipsListComponent implements OnInit {
 
   public spaceships: Spaceship[] = [];
   public loading = true;
+  public searchFilters: FormGroup;
   constructor(private spaceshipService: SpaceshipService,
               private router: Router) { }
 
@@ -21,6 +23,10 @@ export class SpaceshipsListComponent implements OnInit {
       err => console.log(err),
       () => this.loading = false
     );
+    console.log(this.spaceshipService.searchFilters);
+    if (this.spaceshipService.searchFilters != null) {
+      this.searchFilters = this.spaceshipService.searchFilters;
+    }
   }
 
   public onRowClick(id) {

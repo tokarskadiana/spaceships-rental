@@ -1,9 +1,9 @@
-<div class="container-fluid">
+<div class="container-fluid list-page">
   <div class="row">
-    <div class="col-md-4">
-      <app-search-ship-form></app-search-ship-form>
+    <div class="col-md-3">
+      <app-search-ship-form [searchFilters]="searchFilters"></app-search-ship-form>
     </div>
-    <div class="col-md-8">
+    <div class="col-md-9">
       <p-dataList *ngIf="!loading" [value]="spaceships">
 
         <p-header>
@@ -15,19 +15,19 @@
               <img src="{{ship.mainImageUrl}}" class="main-img">
             </div>
             <div class="ui-g-12 ui-md-9 ship-details">
-              <div class="ui-g">
-                <div class="ui-g-2 ui-sm-6">Name: </div>
-                <div class="ui-g-10 ui-sm-6">{{ship.name}}</div>
+              <div class="ui-g-4">
+                <div class="ui-g-2"><i class="fa fa-space-shuttle" aria-hidden="true"></i></div>
+                <div class="ui-g-10">{{ship.name}}</div>
 
-                <div class="ui-g-2 ui-sm-6">Description: </div>
-                <div class="ui-g-10 ui-sm-6">{{ship.shortDescription}}</div>
+                <div class="ui-g-2"><i class="fa fa-cogs" aria-hidden="true"></i></div>
+                <div class="ui-g-10">{{ship.type}}</div>
 
-                <div class="ui-g-2 ui-sm-6">Type: </div>
-                <div class="ui-g-10 ui-sm-6">{{ship.type}}</div>
+                <div class="ui-g-2"><i class="fa fa-users" aria-hidden="true"></i> </div>
+                <div class="ui-g-10">{{ship.capacity}}</div>
 
-                <div class="ui-g-2 ui-sm-6">Capacity: </div>
-                <div class="ui-g-10 ui-sm-6">{{ship.capacity}}</div>
-
+              </div>
+              <div class="ui-g-8">
+                {{ship.shortDescription}}
               </div>
             </div>
           </div>
