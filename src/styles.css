@@ -1,1 +1,11 @@
-/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css?family=Julius+Sans+One');
+body {
+  font-family: 'Open Sans', 'Roboto', 'sans-serif';
+}
+
+@media screen and (min-width: 768px) {
+  .container-fluid {
+    width: 80%;
+    margin: 0 auto;
+  }
+}

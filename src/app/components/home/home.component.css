@@ -1,0 +1,24 @@
+.jumbotron {
+  height: 100vh;
+  background: url("../../../assets/img/spacecraft.jpg") no-repeat;
+  background-size:cover;
+  margin-bottom: 0;
+  margin-top: -50px;
+}
+
+.jumbotron h1 {
+  font-weight: normal;
+  font-family: 'Julius Sans One', 'Open Sans', 'sans-serif';
+}
+@media screen and (min-width: 768px) {
+  .jumbotron .h1, .jumbotron h1 {
+  margin-top: 30px;
+  margin-left: 30px;
+  font-size: 53px;
+}
+  .line-2{
+  display: block;
+  padding-left: 30px;
+  padding-top: 15px;
+}
+}

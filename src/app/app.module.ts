@@ -8,12 +8,15 @@ import {SpaceshipService} from './services/spaceship.service';
 import {DataListModule} from 'primeng/datalist';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { SpaceshipDetailsComponent } from './components/spaceship-details/spaceship-details.component';
+import { HomeComponent } from './components/home/home.component';
+
 @NgModule({
   declarations: [
     AppComponent,
     SpaceshipsListComponent,
     NavbarComponent,
-    SpaceshipDetailsComponent
+    SpaceshipDetailsComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
