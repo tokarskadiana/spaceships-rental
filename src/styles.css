@@ -12,6 +12,21 @@ body {
   box-shadow: 0 0 10px 5px rgba(0,0,0,0.1);;
   padding: 15px;
 }
+.search-form-control {
+  display: inline-block;
+  width: 100%;
+  margin: 10px 0;
+}
+
+.search-form-control input {
+  width: 100%;
+}
+
+.ui-autocomplete-dd .ui-autocomplete-dropdown.ui-corner-all {
+  position: absolute;
+  margin-left: -27px;
+}
+
 @media screen and (min-width: 768px) {
   .container-fluid {
     width: 80%;
