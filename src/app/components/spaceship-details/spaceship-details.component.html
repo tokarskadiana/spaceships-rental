@@ -1,0 +1,20 @@
+<div class="row">
+  <div class="col-md-4">
+    <img src="{{spaceship.mainImageUrl}}" class="main-img">
+  </div>
+  <div class="col-md-8">
+    <p class="text-center">Description</p>
+    <p>{{spaceship.description}}</p>
+    <p class="text-center">Type</p>
+    <p>{{spaceship.type}}</p>
+    <p class="text-center">Capacity</p>
+    <p>{{spaceship.capacity}}</p>
+    <p class="text-center">Dedicated to long trips</p>
+    <p>{{spaceship.isLongTripDedicated}}</p>
+    <p class="text-center">Android pilot on board</p>
+    <p>{{spaceship.isAndroidPilotOnboard}}</p>
+    <p class="text-center">Available at station</p>
+    <p>{{spaceship.currentStation.planet}}</p>
+  </div>
+</div>
+<button class="button" type="button"><a routerLink="spaceships/list">Back</a> </button>

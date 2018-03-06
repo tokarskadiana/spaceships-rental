@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {SpaceshipService} from '../../services/spaceship.service';
 import {Spaceship} from '../../models/spaseship.model';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-spaceships-list',
@@ -11,7 +12,8 @@ export class SpaceshipsListComponent implements OnInit {
 
   public spaceships: Spaceship[] = [];
   public loading = true;
-  constructor(private spaceshipService: SpaceshipService) { }
+  constructor(private spaceshipService: SpaceshipService,
+              private router: Router) { }
 
   ngOnInit() {
     this.spaceshipService.getAll().subscribe(
@@ -19,6 +21,10 @@ export class SpaceshipsListComponent implements OnInit {
       err => console.log(err),
       () => this.loading = false
     );
+  }
+
+  public onRowClick(id) {
+    this.router.navigate(['/spaceships/', id]);
   }
 
 }

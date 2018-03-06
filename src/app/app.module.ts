@@ -7,12 +7,13 @@ import {routing} from './app.routing';
 import {SpaceshipService} from './services/spaceship.service';
 import {DataListModule} from 'primeng/datalist';
 import { NavbarComponent } from './components/navbar/navbar.component';
-
+import { SpaceshipDetailsComponent } from './components/spaceship-details/spaceship-details.component';
 @NgModule({
   declarations: [
     AppComponent,
     SpaceshipsListComponent,
-    NavbarComponent
+    NavbarComponent,
+    SpaceshipDetailsComponent
   ],
   imports: [
     BrowserModule,
