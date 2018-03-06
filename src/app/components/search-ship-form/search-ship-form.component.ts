@@ -1,4 +1,4 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {StationService} from '../../services/station.service';
 import {SelectItem} from 'primeng/api';
@@ -12,11 +12,11 @@ import {SpaceshipService} from '../../services/spaceship.service';
 })
 export class SearchShipFormComponent implements OnInit {
 
+  @Input() searchFilters: FormGroup;
   @Output() onSubmitClick: EventEmitter<any> = new EventEmitter();
 
   public stations: Station[] = [];
   public filteredStations: any[];
-  public searchFilters: FormGroup;
   public dropOffAnotherStation = false;
   public showFilters = false;
   public typeOptions: SelectItem[];
@@ -27,16 +27,22 @@ export class SearchShipFormComponent implements OnInit {
               private spaceshipService: SpaceshipService) { }
 
   ngOnInit() {
-    this.searchFilters = this.formBuilder.group({
-      pickUpStation: ['', Validators.required],
-      dropOffStation: '',
-      reserveFrom: ['', [ Validators.required, Validators.pattern('^(0[1-9]|[1-2][0-9]|3[0-1])\/(0[1-9]|1[0-2])\/[0-9]{4}$')]],
-      reserveTo: ['', Validators.pattern('^(0[1-9]|[1-2][0-9]|3[0-1])\/(0[1-9]|1[0-2])\/[0-9]{4}$')],
-      capacity: '',
-      androidPilot: '',
-      type: '',
-      longTrip: ''
-    });
+    if (this.searchFilters == null) {
+      this.searchFilters = this.formBuilder.group({
+        pickUpStation: ['', Validators.required],
+        dropOffStation: '',
+        reserveFrom: ['', [ Validators.required, Validators.pattern('^(0[1-9]|[1-2][0-9]|3[0-1])\/(0[1-9]|1[0-2])\/[0-9]{4}$')]],
+        reserveTo: ['', Validators.pattern('^(0[1-9]|[1-2][0-9]|3[0-1])\/(0[1-9]|1[0-2])\/[0-9]{4}$')],
+        capacity: '',
+        androidPilot: '',
+        type: '',
+        longTrip: ''
+      });
+    } else {
+      if (this.searchFilters.value.pickUpStation !== this.searchFilters.value.dropOffStation) {
+        this.dropOffAnotherStation = true;
+      }
+    }
     this.stationService.getAll().subscribe(
       stations => this.stations = stations
     );
@@ -57,8 +63,8 @@ export class SearchShipFormComponent implements OnInit {
     if (this.searchFilters.valid) {
       if (this.searchFilters.value.dropOffStation == null) {
         this.searchFilters.patchValue({'dropOffStation': this.searchFilters.value.pickUpStation});
-        this.spaceshipService.searchFilters = this.searchFilters;
       }
+      this.spaceshipService.searchFilters = this.searchFilters;
     }
   }
 

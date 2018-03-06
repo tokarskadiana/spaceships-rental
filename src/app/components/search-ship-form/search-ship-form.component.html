@@ -5,7 +5,7 @@
                   [dropdown]="true" [required]="true">
   </p-autoComplete>
 
-  <p-checkbox label="Return at another station" (click)="dropOffAnotherStation=!dropOffAnotherStation"></p-checkbox>
+  <p-checkbox label="Return at another station" (click)="dropOffAnotherStation=!dropOffAnotherStation" [value]="dropOffAnotherStation"></p-checkbox>
 
   <p-autoComplete *ngIf="dropOffAnotherStation" formControlName="dropOffStation" [suggestions]="filteredStations"
                   (completeMethod)="filterStations($event)" field="planet" styleClass="search-form-control"
