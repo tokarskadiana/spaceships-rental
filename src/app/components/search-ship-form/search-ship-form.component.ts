@@ -39,9 +39,11 @@ export class SearchShipFormComponent implements OnInit {
         longTrip: ''
       });
     } else {
-      if (this.searchFilters.value.pickUpStation !== this.searchFilters.value.dropOffStation) {
+      const value = this.searchFilters.value;
+      if (value.pickUpStation !== value.dropOffStation) {
         this.dropOffAnotherStation = true;
       }
+      this.showFilters = value.capacity != null || value.androidPilot != null || value.type != null || value.longTrip != null;
     }
     this.stationService.getAll().subscribe(
       stations => this.stations = stations
