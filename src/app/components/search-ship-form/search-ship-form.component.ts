@@ -40,7 +40,7 @@ export class SearchShipFormComponent implements OnInit {
       });
     } else {
       const value = this.searchFilters.value;
-      if (value.pickUpStation !== value.dropOffStation) {
+      if (value.pickUpStation.planet !== value.dropOffStation.palnet) {
         this.dropOffAnotherStation = true;
       }
       this.showFilters = value.capacity != null || value.androidPilot != null || value.type != null || value.longTrip != null;
